@@ -1,0 +1,25 @@
+{
+  "name": "patterns.twitter",
+  "version": "0.0.1",
+  "description": "A twitter pattern based on twitter-fetcher",
+  "author": {
+    "name": "Manuel Reinhardt",
+    "email": "reinhardt@syslab.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:syslabcom/patterns.twitter.git"
+  },
+  "dependencies": {
+    "http-server": "^0.7.3"
+  },
+  "devDependencies": {
+    "bower": "latest",
+    "requirejs": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

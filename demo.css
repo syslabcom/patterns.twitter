@@ -1,0 +1,33 @@
+.pat-twitter {
+    width: 36em;
+}
+ul {
+    list-style: outside none none;
+}
+li {
+    border:1px solid #dedede;
+    margin:5px;
+    padding:5px;
+
+}
+.user a,
+.user a:link,
+.user a:visited,
+.user a:hover {
+    text-decoration:none;
+}
+.user img {
+    float: left;
+    padding-right: 0.5em;
+}
+.user span:nth-child(3),
+.timePosted {
+    font-size: 75%;
+}
+.tweet {
+    padding-left: 56px;
+    margin-top: 0.4em;
+}
+.interact a {
+    padding: 0 0.25em;
+}

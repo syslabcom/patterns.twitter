@@ -1,0 +1,8 @@
+{
+  "name": "patterns.twitter",
+  "version": "0.0.1",
+  "dependencies": {
+      "patternslib": "master",
+      "twitter-fetcher": "https://github.com/jasonmayes/Twitter-Post-Fetcher.git"
+  }
+}
