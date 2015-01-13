@@ -1,10 +1,8 @@
 .pat-twitter {
     width: 36em;
+    border:1px solid #5e5ede;
 }
-ul {
-    list-style: outside none none;
-}
-li {
+article {
     border:1px solid #dedede;
     margin:5px;
     padding:5px;

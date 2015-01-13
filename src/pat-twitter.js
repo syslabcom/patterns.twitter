@@ -28,6 +28,7 @@
         init: function patTwitterInit ($el, opts) {
             var options = parser.parse($el, opts),
                 new_id = "twitter" + Math.floor((Math.random() * 100000));
+
             if (!$el.attr("id")) {
                 while ($("#" + new_id).length) {
                     new_id = "twitter" + Math.floor((Math.random() * 100000));
@@ -35,8 +36,38 @@
                 $el.attr("id", new_id);
             }
             options.domId = $el.attr("id");
+
+            callback = function patTwitterCallback (tweets) {
+                var x = tweets.length;
+                var n = 0;
+                var element = document.getElementById(options.domId);
+                var html = '';
+                var tweet;
+                var $raw_tweet;
+                while(n < x) {
+                  $raw_tweet = $(tweets[n]);
+                  tweet = document.createElement('article');
+                  var link = document.createElement('a');
+                  link.href = $raw_tweet.filter('.user').find('a').attr('href');
+                  var figure = document.createElement('figure');
+                  var tweet_text = document.createElement('p');
+                  tweet_text.class = "icon-twitter description";
+                  tweet_text.innerHTML = $raw_tweet.filter('.tweet')[0].innerHTML;
+                  link.appendChild(tweet_text);
+                  tweet.appendChild(link);
+                  if (x==1) {
+                    html += tweet.innerHTML;
+                  } else {
+                    html += tweet.outerHTML;
+                  }
+                  n++;
+                }
+                element.innerHTML = html;
+            }
+            options.customCallback = callback;
+
             twitterFetcher.fetch(options);
-        }
+        },
     };
     registry.register(twitter);
 }));
