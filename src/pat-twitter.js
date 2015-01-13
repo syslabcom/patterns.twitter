@@ -20,8 +20,10 @@
     parser.add_argument("id");
     parser.add_argument("max-tweets", 1);
     parser.add_argument("enable-links", true);
+    parser.add_argument("override-link");
     parser.add_argument("show-images", false);
     parser.add_argument("placeholder-image");
+    parser.add_argument("spacer-image-url", "placeholder-16x9.png");
 
     var twitter = {
         name: "twitter",
@@ -50,14 +52,14 @@
                   $raw_tweet = $(tweets[n]);
                   tweet = document.createElement('article');
                   var link = document.createElement('a');
-                  link.href = $raw_tweet.filter('.user').find('a').attr('href');
+                  link.href = options.overrideLink || $raw_tweet.filter('.user').find('a').attr('href');
 
                   if (options.showImages) {
                       var images = $raw_tweet.filter('.media').find('img');
                       var figure = document.createElement('figure');
                       var image = document.createElement('img');
                       if (options.placeholderImage || images.length) {
-                          image.src = 'placeholder-16x9.png';
+                          image.src = options.spacerImageUrl;;
                       }
                       if (images.length) {
                           image.setAttribute('style', 'background-image: url(' + images[0].src + ');');
@@ -67,7 +69,7 @@
                   }
 
                   var tweet_text = document.createElement('p');
-                  tweet_text.class = "icon-twitter description";
+                  tweet_text.setAttribute('class', "icon-twitter description");
                   tweet_text.innerText = $raw_tweet.filter('.tweet')[0].innerText;
                   link.appendChild(tweet_text);
 
