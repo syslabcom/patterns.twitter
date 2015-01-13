@@ -52,7 +52,9 @@
                   $raw_tweet = $(tweets[n]);
                   tweet = document.createElement('article');
                   var link = document.createElement('a');
-                  link.href = options.overrideLink || $raw_tweet.filter('.user').find('a').attr('href');
+                  if (!options.enableLinks) {
+                      link.href = options.overrideLink || $raw_tweet.filter('.user').find('a').attr('href');
+                  }
 
                   if (options.showImages) {
                       var images = $raw_tweet.filter('.media').find('img');
@@ -70,7 +72,7 @@
 
                   var tweet_text = document.createElement('p');
                   tweet_text.setAttribute('class', "icon-twitter description");
-                  tweet_text.innerText = $raw_tweet.filter('.tweet')[0].innerText;
+                  tweet_text.innerHTML = $raw_tweet.filter('.tweet')[0].innerHTML;
                   link.appendChild(tweet_text);
 
                   tweet.appendChild(link);
