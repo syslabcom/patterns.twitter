@@ -4,28 +4,13 @@
 }
 article {
     border:1px solid #dedede;
-    margin:5px;
-    padding:5px;
+    margin:0.2em;
+    padding:0.2em;
 
 }
-.user a,
-.user a:link,
-.user a:visited,
-.user a:hover {
-    text-decoration:none;
+figure {
+    margin: 0.5em;
 }
-.user img {
-    float: left;
-    padding-right: 0.5em;
-}
-.user span:nth-child(3),
-.timePosted {
-    font-size: 75%;
-}
-.tweet {
-    padding-left: 56px;
-    margin-top: 0.4em;
-}
-.interact a {
-    padding: 0 0.25em;
+figure img {
+    max-width: 34.2em;
 }
