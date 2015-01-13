@@ -10,6 +10,7 @@ article {
 }
 figure {
     margin: 0.5em;
+    background-image: url("twitter-poster.svg");
     background-size: 100% auto;
 }
 figure img {

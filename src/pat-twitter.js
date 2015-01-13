@@ -56,12 +56,10 @@
                       var images = $raw_tweet.filter('.media').find('img');
                       var figure = document.createElement('figure');
                       var image = document.createElement('img');
-                      if (options.placeholderImage) {
+                      if (options.placeholderImage || images.length) {
                           image.src = 'placeholder-16x9.png';
-                          figure.setAttribute('style', 'background-image: url(' + options.placeholderImage + ');');;
                       }
                       if (images.length) {
-                          image.src = 'placeholder-16x9.png';
                           image.setAttribute('style', 'background-image: url(' + images[0].src + ');');
                       }
                       figure.appendChild(image);
