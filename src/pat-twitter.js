@@ -20,6 +20,7 @@
     parser.add_argument("id");
     parser.add_argument("max-tweets", 1);
     parser.add_argument("enable-links", true);
+    parser.add_argument("show-images", false);
 
     var twitter = {
         name: "twitter",
