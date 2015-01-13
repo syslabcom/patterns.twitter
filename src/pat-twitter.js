@@ -50,11 +50,19 @@
                   tweet = document.createElement('article');
                   var link = document.createElement('a');
                   link.href = $raw_tweet.filter('.user').find('a').attr('href');
-                  var figure = document.createElement('figure');
+
+                  var images = $raw_tweet.filter('.media').find('img');
+                  if (images.length) {
+                      var figure = document.createElement('figure');
+                      figure.appendChild(images[0]);
+                      link.appendChild(figure);
+                  }
+
                   var tweet_text = document.createElement('p');
                   tweet_text.class = "icon-twitter description";
-                  tweet_text.innerHTML = $raw_tweet.filter('.tweet')[0].innerHTML;
+                  tweet_text.innerHTML = $raw_tweet.filter('.tweet')[0].innerText;
                   link.appendChild(tweet_text);
+
                   tweet.appendChild(link);
                   if (x==1) {
                     html += tweet.innerHTML;
