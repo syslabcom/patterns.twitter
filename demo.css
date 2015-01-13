@@ -10,7 +10,10 @@ article {
 }
 figure {
     margin: 0.5em;
+    background-size: 100% auto;
 }
 figure img {
-    max-width: 34.2em;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }

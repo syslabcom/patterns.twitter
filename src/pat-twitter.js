@@ -21,6 +21,7 @@
     parser.add_argument("max-tweets", 1);
     parser.add_argument("enable-links", true);
     parser.add_argument("show-images", false);
+    parser.add_argument("placeholder-image");
 
     var twitter = {
         name: "twitter",
@@ -51,16 +52,25 @@
                   var link = document.createElement('a');
                   link.href = $raw_tweet.filter('.user').find('a').attr('href');
 
-                  var images = $raw_tweet.filter('.media').find('img');
-                  if (images.length) {
+                  if (options.showImages) {
+                      var images = $raw_tweet.filter('.media').find('img');
                       var figure = document.createElement('figure');
-                      figure.appendChild(images[0]);
+                      var image = document.createElement('img');
+                      if (options.placeholderImage) {
+                          image.src = 'placeholder-16x9.png';
+                          figure.setAttribute('style', 'background-image: url(' + options.placeholderImage + ');');;
+                      }
+                      if (images.length) {
+                          image.src = 'placeholder-16x9.png';
+                          image.setAttribute('style', 'background-image: url(' + images[0].src + ');');
+                      }
+                      figure.appendChild(image);
                       link.appendChild(figure);
                   }
 
                   var tweet_text = document.createElement('p');
                   tweet_text.class = "icon-twitter description";
-                  tweet_text.innerHTML = $raw_tweet.filter('.tweet')[0].innerText;
+                  tweet_text.innerText = $raw_tweet.filter('.tweet')[0].innerText;
                   link.appendChild(tweet_text);
 
                   tweet.appendChild(link);
