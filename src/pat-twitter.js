@@ -84,6 +84,9 @@
                   n++;
                 }
                 element.innerHTML = html;
+                $el.trigger("pat-update",
+                            {pattern: "twitter",
+                             layout_altered: true});
             }
             options.customCallback = callback;
 
