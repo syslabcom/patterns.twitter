@@ -62,6 +62,8 @@
                       var image = document.createElement('img');
                       if (options.placeholderImage || images.length) {
                           image.src = options.spacerImageUrl;
+                          $(image).removeAttr('height');
+                          $(image).removeAttr('width');
                       }
                       if (images.length) {
                           image.setAttribute('style', 'background-image: url(' + images[0].src + ');');
