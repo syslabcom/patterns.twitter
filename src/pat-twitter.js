@@ -23,7 +23,7 @@
     parser.add_argument("override-link");
     parser.add_argument("show-images", false);
     parser.add_argument("placeholder-image");
-    parser.add_argument("spacer-image-url", "placeholder-16x9.png");
+    parser.add_argument("spacer-image-url", "placeholder.png");
 
     var twitter = {
         name: "twitter",
@@ -61,7 +61,7 @@
                       var figure = document.createElement('figure');
                       var image = document.createElement('img');
                       if (options.placeholderImage || images.length) {
-                          image.src = options.spacerImageUrl;;
+                          image.src = options.spacerImageUrl;
                       }
                       if (images.length) {
                           image.setAttribute('style', 'background-image: url(' + images[0].src + ');');
@@ -87,7 +87,7 @@
                 $el.trigger("pat-update",
                             {pattern: "twitter",
                              layout_altered: true});
-            }
+            };
             options.customCallback = callback;
 
             twitterFetcher.fetch(options);
